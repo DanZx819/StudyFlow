@@ -1,0 +1,56 @@
+.footer {
+  width: 100%;
+  margin-top: 40px;
+  background-color: var(--color-card);
+  border-top: 1px solid var(--color-neutral);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  text-align: center;
+}
+
+/* Logo / marca */
+.brand h2 {
+  color: var(--color-primary);
+  font-size: 20px;
+}
+
+.brand p {
+  font-size: 14px;
+  color: var(--color-text);
+  opacity: 0.8;
+}
+
+/* Links */
+.links {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.links a {
+  text-decoration: none;
+  color: var(--color-text);
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.links a:hover {
+  color: var(--color-primary);
+}
+
+/* Copyright */
+.copy {
+  font-size: 13px;
+  color: var(--color-text);
+  opacity: 0.6;
+}

@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+/* 🌞 Tema Light */
+:root {
+  --color-bg: #F7F9FC;
+  --color-card: #FFFFFF;
+  --color-primary: #8B9FDE;
+  --color-secondary: #22C55E;
+   --color-secondary-hover: #16A34A;
+  --color-text: #334155;
+  --color-neutral: #F1F5F9;
+}
+
+/* 🌙 Tema Dark */
+.dark {
+  --color-bg: #0F172A;
+  --color-card: #1E293B;
+  --color-primary: #8B9FDE;
+  --color-secondary: #4ADE80;
+  --color-secondary-hover: #22C55E; 
+  --color-text: #E2E8F0;
+  --color-neutral: #334155;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}

@@ -1,0 +1,13 @@
+.buttonTheme {
+  background-color: var(--color-primary);
+  color: var(--btn-text);
+  padding: 10px;
+  border-radius: 0.75rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.buttonTheme:hover {
+  background-color: var(--color-primary-hover);
+}

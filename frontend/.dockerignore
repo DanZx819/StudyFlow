@@ -1,0 +1,17 @@
+# .dockerignore para Next.js
+node_modules
+npm-debug.log
+.next
+.git
+.gitignore
+README.md
+.env*.local
+.vercel
+.DS_Store
+*.pem
+.vscode
+.idea
+coverage
+.nyc_output
+dist
+build

@@ -1,13 +1,38 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import styles from "./styles.module.css";
 import Link from "next/link";
+import api from "@/services/api";
+import { User } from "@/types/User";
 
 export default function Home() {
+  const [user, setUser] = useState<User | null>(null)
+
+  async function getUser(){
+    try{
+      const response = await api.get<User>("/user");
+      setUser(response.data);
+    }catch(error){
+      console.error("Erro ao buscar usuário", error);
+    }
+  }
+  
+  
+  useEffect(() =>{
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    getUser();
+  }, []);
+
+
+
   return (
     <div className={styles.container}>
       
       {/* Saudação */}
       <section className={styles.hero}>
-        <h1>Olá, Daniel 👋</h1>
+        <h1>Olá, {user?.name}👋</h1>
+        <h2>🔥{user?.sequencia}</h2>
         <p>Pronto para continuar sua evolução hoje?</p>
       </section>
 

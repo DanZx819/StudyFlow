@@ -1,15 +1,19 @@
 "use client";
 
 import { useState } from "react";
+import { register } from "@/services/authService";
+import { RegisterDTO } from "@/types/User";
 import styles from "./styles.module.css";
 
 export default function Register() {
 
-const [form, setForm] = useState({
+const [form, setForm] = useState<RegisterDTO>({
     name: "",
     email: "",
     password: "",
 })
+
+const [loading, setLoading] = useState(false);
   
 function handleChange(e: React.ChangeEvent<HTMLInputElement>){
     setForm({
@@ -18,10 +22,18 @@ function handleChange(e: React.ChangeEvent<HTMLInputElement>){
     })
 }
   
-function handleSubmit(e: React.FormEvent){
+async function handleSubmit(e: React.FormEvent){
     e.preventDefault();
-    //Fazer requisição
-    console.log(form)
+    
+    try{
+      setLoading(true)
+      await register(form);
+      alert("Usuário criado com sucesso!");
+    }catch(error: unknown){
+      console.error(error instanceof Error ? error.message : error);
+    }finally{
+      setLoading(false)
+    }
 }
   return (
     <div className={styles.container}>
@@ -54,7 +66,9 @@ function handleSubmit(e: React.FormEvent){
           required
         />
 
-        <button type="submit">Cadastrar</button>
+        <button type="submit">
+          {loading ? "Cadastrando..." : "Cadastrar"}
+        </button>
 
         <span>
           Já tem conta? <a href="/login">Entrar</a>

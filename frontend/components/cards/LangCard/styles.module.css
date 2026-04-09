@@ -1,0 +1,89 @@
+.container {
+  background-color: var(--color-card);
+  border-radius: 16px;
+  width: 220px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid color-mix(in srgb, var(--color-primary) 20%, transparent);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.container:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px color-mix(in srgb, var(--color-primary) 15%, transparent);
+}
+
+/* Imagem */
+.imgWrapper {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background-color: var(--color-neutral);
+  padding: 12px; /* 👈 espaço interno */
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* mantém inteiro */
+}
+.container:hover .img {
+  transform: scale(1.04);
+}
+
+.imgPlaceholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
+  opacity: 0.5;
+}
+
+/* Conteúdo */
+.content {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-text);
+  margin: 0;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+}
+
+/* Botão */
+.btn {
+  width: 100%;
+  padding: 10px 0;
+  border-radius: 10px;
+  border: none;
+  background-color: var(--color-secondary);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  transition: background-color 0.15s ease, transform 0.1s ease;
+}
+
+.btn:hover {
+  background-color: var(--color-secondary-hover);
+}
+
+.btn:active {
+  transform: scale(0.97);
+}

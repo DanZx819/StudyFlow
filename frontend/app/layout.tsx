@@ -1,13 +1,19 @@
+
+
 import { Inter } from "next/font/google";
 const inter = Inter({
   subsets: ["latin"],
   weight: ["400", "500"],
 });
-import "./globals.css";
+import "@/app/globals.css";
 
 import styles from "./layout.module.css";
 import HeaderComponent from "@/components/header/HeaderComponent";
 import FooterComponent from "@/components/footer/FooterComponent";
+
+
+
+
 
 export default function RootLayout({
   children,

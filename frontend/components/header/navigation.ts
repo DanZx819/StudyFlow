@@ -1,6 +1,6 @@
 export const navLinks = [
     {name: 'Início', href: '/'},
     {name: 'Minha Rotina', href: '/rotina'},
-    {name: 'Linguagens', href: '/linguagens'},
+    {name: 'Materias', href: '/materias'},
     {name: 'Progresso', href: '/progresso'}
 ]

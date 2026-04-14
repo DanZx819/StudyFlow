@@ -1,9 +1,12 @@
 import styles from "./styles.module.css";
+import { Pencil, Trash2 } from "lucide-react";
 
 interface LangCardProps {
   image?: string;
   title?: string;
   onCreateRoutine?: () => void;
+  onEdit?: () => void;
+  onDelete?: () => void;
 }
 
 function handleModal(){
@@ -14,7 +17,20 @@ export default function LangCardComponent({
   image,
   title = "Título do Card",
   onCreateRoutine,
+  onEdit,
+  onDelete,
 }: LangCardProps) {
+  
+  const handleEditClick = (e: React.MouseEvent) => {
+    e.stopPropagation(); // Evita abrir o modal
+    onEdit?.();
+  };
+
+  const handleDeleteClick = (e: React.MouseEvent) => {
+    e.stopPropagation(); // Evita abrir o modal
+    onDelete?.();
+  };
+
   return (
     <div className={styles.container} onClick={handleModal}>
       <div className={styles.imgWrapper}>
@@ -38,6 +54,24 @@ export default function LangCardComponent({
             </svg>
           </div>
         )}
+        
+        {/* Botões de ação */}
+        <div className={styles.actionButtons}>
+          <button 
+            className={`${styles.actionBtn} ${styles.editBtn}`}
+            onClick={handleEditClick}
+            aria-label="Editar"
+          >
+            <Pencil size={14} />
+          </button>
+          <button 
+            className={`${styles.actionBtn} ${styles.deleteBtn}`}
+            onClick={handleDeleteClick}
+            aria-label="Deletar"
+          >
+            <Trash2 size={14} />
+          </button>
+        </div>
       </div>
 
       <div className={styles.content}>

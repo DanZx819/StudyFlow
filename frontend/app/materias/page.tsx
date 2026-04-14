@@ -35,6 +35,7 @@ function UploadIcon() {
 // ── Page ─────────────────────────────────────────────────────────────────────
 export default function Linguagens() {
   const [subjects, setSubjects] = useState<Subject[]>([]);
+  const [editModal, setEditModal] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const [title, setTitle] = useState("");
   const [preview, setPreview] = useState<string | null>(null);
@@ -62,6 +63,13 @@ export default function Linguagens() {
     if (!picked) return;
     setFile(picked);
     setPreview(URL.createObjectURL(picked));
+  }
+  function handleEditSubmit(e: FormEvent){
+    e.preventDefault();
+  }
+
+  function closeEditModal(){
+    setEditModal(false);
   }
 
   // ── Fecha e limpa o modal ──────────────────────────────────────────────────
@@ -134,12 +142,45 @@ export default function Linguagens() {
               key={s.id}
               image={s.imageUrl}
               title={s.title}
+              onEdit={() =>{
+                setEditModal(true);
+              }}
             />
           ))
         )}
       </section>
 
       {/* Modal */}
+      {editModal && (
+        <div className={styles.overlay} onClick={(e) => { if (e.target === e.currentTarget) closeEditModal(); }}>
+          <div className={styles.modal} role="dialog" aria-modal="true">
+
+            <div className={styles.modalHeader}>
+              <h2 className={styles.modalTitle}>Editar matéria</h2>
+              <button className={styles.closeBtn} onClick={closeEditModal} type="button" aria-label="Fechar">✕</button>
+            </div>
+
+            <form className={styles.form} onSubmit={handleEditSubmit}>
+              <div className={styles.field}>
+                <label className={styles.label} htmlFor="edit-title">Título</label>
+                <input
+                  id="edit-title"
+                  className={styles.input}
+                  type="text"
+                  value={title}
+                  onChange={(e) => setTitle(e.target.value)}
+                  required
+                />
+              </div>
+
+              <button className={styles.submitBtn} type="submit" disabled={loading || !title.trim()}>
+                {loading ? "Salvando…" : "Salvar alterações"}
+              </button>
+            </form>
+
+          </div>
+        </div>
+      )}
       {modalOpen && (
         <div className={styles.overlay} onClick={handleOverlayClick}>
           <div className={styles.modal} role="dialog" aria-modal="true">

@@ -13,9 +13,7 @@ Route::get('/user', function (Request $request) {
 Route::middleware("auth:sanctum")->group(function(){
     //Rotas de Matérias 
 
-    Route::get("/subjects", [SubjectController::class, 'index']);
-    Route::post("/subjects", [SubjectController::class, 'store']);
-
+    Route::apiResource('subjects', SubjectController::class);
     //Logout
 
     Route::post("/logout", [AuthController::class, 'logout']);

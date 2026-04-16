@@ -2,11 +2,12 @@ import styles from "./styles.module.css";
 import { Pencil, Trash2 } from "lucide-react";
 
 interface LangCardProps {
+  id: string | number; // 👈 ID obrigatório
   image?: string;
   title?: string;
-  onCreateRoutine?: () => void;
-  onEdit?: () => void;
-  onDelete?: () => void;
+  onCreateRoutine?: (id: string | number) => void;
+  onEdit?: (id: string | number) => void;
+  onDelete?: (id: string | number) => void;
 }
 
 function handleModal(){
@@ -14,6 +15,7 @@ function handleModal(){
 }
 
 export default function LangCardComponent({
+  id,
   image,
   title = "Título do Card",
   onCreateRoutine,
@@ -22,13 +24,18 @@ export default function LangCardComponent({
 }: LangCardProps) {
   
   const handleEditClick = (e: React.MouseEvent) => {
-    e.stopPropagation(); // Evita abrir o modal
-    onEdit?.();
+    e.stopPropagation();
+    onEdit?.(id); // 👈 Passa o ID
   };
 
   const handleDeleteClick = (e: React.MouseEvent) => {
-    e.stopPropagation(); // Evita abrir o modal
-    onDelete?.();
+    e.stopPropagation();
+    onDelete?.(id); // 👈 Passa o ID
+  };
+
+  const handleCreateRoutine = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    onCreateRoutine?.(id); // 👈 Passa o ID
   };
 
   return (
@@ -77,7 +84,7 @@ export default function LangCardComponent({
       <div className={styles.content}>
         <h3 className={styles.title}>{title}</h3>
 
-        <button className={styles.btn} onClick={onCreateRoutine}>
+        <button className={styles.btn} onClick={handleCreateRoutine}>
           Criar Rotina
         </button>
       </div>

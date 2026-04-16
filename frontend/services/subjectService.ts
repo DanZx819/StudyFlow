@@ -21,3 +21,13 @@ export async function createSubject(data: FormData) {
     return response.data;
 }
 
+export async function updateSubject(data: FormData, id: number) {
+    data.append("_method", "PUT");
+    const response = await api.post<Subject>(`/subjects/${id}`, data);
+
+    return response.data;
+}
+
+export async function deleteSubject(id:number) {
+    await api.delete(`subjects/${id}`);
+}

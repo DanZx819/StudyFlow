@@ -336,7 +336,7 @@ export default function Linguagens() {
                       <>
                         <UploadIcon />
                         <span className={styles.uploadText}>
-                          Clique para alterar a imagem
+                          Imagem
                         </span>
                       </>
                     )}

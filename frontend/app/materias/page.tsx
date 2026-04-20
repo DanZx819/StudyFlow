@@ -73,7 +73,6 @@ export default function Linguagens() {
     async function loadSubject() {
       try {
         const data = await getSubjects();
-        console.log(data);
         setSubjects(data);
       } catch (error: unknown) {
         console.log(error);

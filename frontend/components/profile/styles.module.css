@@ -1,0 +1,455 @@
+/* ProfilePage - Paleta Minimalista Nórdico */
+
+.page {
+  min-height: 100vh;
+  background: var(--color-bg, #F7F9FC);
+  padding: 40px 20px;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  background: var(--color-card, #FFFFFF);
+  border-radius: 24px;
+  border: 1px solid var(--color-border, #E2E8F0);
+  box-shadow: 0 2px 12px rgba(139, 159, 222, 0.08);
+  overflow: hidden;
+}
+
+/* ─── Header ──────────────────────────────────────────────────────────────── */
+
+.header {
+  background: linear-gradient(135deg, #8B9FDE 0%, #A5B4FC 100%);
+  padding: 48px 40px 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.header::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 300px;
+  height: 300px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  filter: blur(60px);
+}
+
+.headerContent {
+  position: relative;
+  z-index: 1;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 600;
+  color: #FFFFFF;
+  margin: 0 0 8px;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+  font-weight: 400;
+}
+
+/* ─── Form ────────────────────────────────────────────────────────────────── */
+
+.form {
+  padding: 0;
+}
+
+/* ─── Avatar Section ──────────────────────────────────────────────────────── */
+
+.avatarSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+  gap: 24px;
+  margin-top: -60px; /* Overlap com header */
+  position: relative;
+  z-index: 2;
+}
+
+.avatarWrapper {
+  position: relative;
+}
+
+.avatarContainer {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: var(--color-neutral, #F1F5F9);
+  border: 6px solid var(--color-card, #FFFFFF);
+  box-shadow: 0 8px 24px rgba(51, 65, 85, 0.12);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.avatarContainer:hover {
+  transform: scale(1.02);
+}
+
+.avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.avatarPlaceholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary, #8B9FDE);
+  background: linear-gradient(135deg, #F1F5F9 0%, #E2E8F0 100%);
+}
+
+.avatarEditBtn {
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--color-primary, #8B9FDE);
+  border: 3px solid var(--color-card, #FFFFFF);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(139, 159, 222, 0.3);
+}
+
+.avatarEditBtn:hover {
+  background: #7B8FCE;
+  transform: scale(1.05);
+}
+
+.avatarEditBtn:active {
+  transform: scale(0.98);
+}
+
+.fileInput {
+  display: none;
+}
+
+.avatarInfo {
+  text-align: center;
+}
+
+.userName {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--color-text, #334155);
+  margin: 0 0 4px;
+  letter-spacing: -0.01em;
+}
+
+.userEmail {
+  font-size: 15px;
+  color: var(--color-text-secondary, #64748B);
+  margin: 0;
+}
+
+/* ─── Divider ─────────────────────────────────────────────────────────────── */
+
+.divider {
+  height: 1px;
+  background: var(--color-border, #E2E8F0);
+  margin: 0 40px;
+}
+
+/* ─── Sections ────────────────────────────────────────────────────────────── */
+
+.section {
+  padding: 32px 40px;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.sectionTitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-text, #334155);
+  margin: 0 0 24px;
+  letter-spacing: -0.01em;
+}
+
+.changePasswordBtn {
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid var(--color-border, #E2E8F0);
+  background: transparent;
+  color: var(--color-primary, #8B9FDE);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.changePasswordBtn:hover {
+  background: var(--color-neutral, #F1F5F9);
+  border-color: var(--color-primary, #8B9FDE);
+}
+
+/* ─── Fields ──────────────────────────────────────────────────────────────── */
+
+.fieldsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-text, #334155);
+  letter-spacing: 0.01em;
+}
+
+.label svg {
+  color: var(--color-text-secondary, #64748B);
+}
+
+.input {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1px solid var(--color-border, #E2E8F0);
+  background: var(--color-card, #FFFFFF);
+  color: var(--color-text, #334155);
+  font-size: 15px;
+  font-family: inherit;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.input::placeholder {
+  color: var(--color-text-muted, #94A3B8);
+}
+
+.input:hover {
+  border-color: var(--color-primary, #8B9FDE);
+}
+
+.input:focus {
+  border-color: var(--color-primary, #8B9FDE);
+  box-shadow: 0 0 0 3px rgba(139, 159, 222, 0.1);
+  background: var(--color-card, #FFFFFF);
+}
+
+/* ─── Actions ─────────────────────────────────────────────────────────────── */
+
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 24px 40px 40px;
+}
+
+.cancelBtn,
+.saveBtn {
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cancelBtn {
+  background: transparent;
+  color: var(--color-text-secondary, #64748B);
+  border: 1px solid var(--color-border, #E2E8F0);
+}
+
+.cancelBtn:hover {
+  background: var(--color-neutral, #F1F5F9);
+  border-color: var(--color-text-secondary, #64748B);
+}
+
+.saveBtn {
+  background: var(--color-primary, #8B9FDE);
+  color: #FFFFFF;
+  box-shadow: 0 2px 8px rgba(139, 159, 222, 0.25);
+}
+
+.saveBtn:hover:not(:disabled) {
+  background: #7B8FCE;
+  box-shadow: 0 4px 12px rgba(139, 159, 222, 0.35);
+  transform: translateY(-1px);
+}
+
+.saveBtn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.saveBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.loadingText {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.loadingText::after {
+  content: '';
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #FFFFFF;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ─── Responsive ──────────────────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .page {
+    padding: 20px 16px;
+  }
+
+  .container {
+    border-radius: 16px;
+  }
+
+  .header {
+    padding: 32px 24px 24px;
+  }
+
+  .title {
+    font-size: 26px;
+  }
+
+  .subtitle {
+    font-size: 14px;
+  }
+
+  .avatarSection {
+    padding: 32px 24px;
+    margin-top: -50px;
+  }
+
+  .avatarContainer {
+    width: 120px;
+    height: 120px;
+  }
+
+  .userName {
+    font-size: 20px;
+  }
+
+  .section {
+    padding: 24px 24px;
+  }
+
+  .divider {
+    margin: 0 24px;
+  }
+
+  .sectionTitle {
+    font-size: 16px;
+  }
+
+  .actions {
+    padding: 20px 24px 32px;
+    flex-direction: column-reverse;
+    width: 100%;
+  }
+
+  .cancelBtn,
+  .saveBtn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (min-width: 769px) {
+  .fieldsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Nome e Email ocupam 1 coluna cada */
+  .field:nth-child(1),
+  .field:nth-child(2) {
+    grid-column: span 1;
+  }
+
+  /* Campos de senha ocupam 1 coluna cada em linha */
+  .section:last-of-type .fieldsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ─── Dark Mode (opcional) ────────────────────────────────────────────────── */
+
+[data-theme="dark"] .page {
+  background: #0F172A;
+}
+
+[data-theme="dark"] .container {
+  background: #1E293B;
+  border-color: #334155;
+}
+
+[data-theme="dark"] .title {
+  color: #F1F5F9;
+}
+
+[data-theme="dark"] .userName {
+  color: #F1F5F9;
+}
+
+[data-theme="dark"] .input {
+  background: #0F172A;
+  border-color: #334155;
+  color: #F1F5F9;
+}
+
+[data-theme="dark"] .input:hover,
+[data-theme="dark"] .input:focus {
+  border-color: #A5B4FC;
+}
+
+[data-theme="dark"] .avatarPlaceholder {
+  background: linear-gradient(135deg, #334155 0%, #475569 100%);
+  color: #A5B4FC;
+}

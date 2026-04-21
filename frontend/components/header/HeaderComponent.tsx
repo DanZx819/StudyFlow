@@ -13,48 +13,43 @@ import ButtonThemeToggle from "../theme/ButtonThemeToggle";
 import { Menu, X } from "lucide-react";
 import { User } from "@/types/User";
 import getUser from "@/services/userService";
-
-
-
+import { useRouter } from "next/navigation";
+import { logout } from "@/services/loginService";
 
 export default function HeaderComponent() {
-  
   const [user, setUser] = useState<User | null>(null);
   const [open, setOpen] = useState(false);
-  useEffect(() =>{
-    async function setandoUser(){
-      try{
+  useEffect(() => {
+    async function setandoUser() {
+      try {
         const response = await getUser();
-        if(response){
+        if (response) {
           setUser(response);
         }
-      }catch(error: unknown){
-        console.error(error)
+      } catch (error: unknown) {
+        console.error(error);
       }
-
     }
 
     setandoUser();
-  }, [open])
+  }, [open]);
+  const router = useRouter();
+  async function handleLogout() {
+    await logout();
+    router.push("/login");
+    setUser(null);
+  }
 
-
-
-
-
-
-  function handleOpen(){
-    setOpen((prev) =>{
-        return prev === true ? false : true; 
-    })
+  function handleOpen() {
+    setOpen((prev) => {
+      return prev === true ? false : true;
+    });
   }
   return (
     <>
       <header className={styles.container}>
         <div className={styles.row}>
-          <button
-            className={styles.menu}
-            onClick={handleOpen}
-          >
+          <button className={styles.menu} onClick={handleOpen}>
             <Menu />
           </button>
 
@@ -65,23 +60,11 @@ export default function HeaderComponent() {
       </header>
 
       {/* Overlay */}
-      {open && (
-        <div
-          className={styles.overlay}
-          onClick={handleOpen}
-        />
-      )}
+      {open && <div className={styles.overlay} onClick={handleOpen} />}
 
       {/* Sidebar */}
-      <aside
-        className={`${styles.sidebar} ${
-          open ? styles.open : ""
-        }`}
-      >
-        <button
-          className={styles.close}
-          onClick={() => setOpen(false)}
-        >
+      <aside className={`${styles.sidebar} ${open ? styles.open : ""}`}>
+        <button className={styles.close} onClick={() => setOpen(false)}>
           <X />
         </button>
 
@@ -91,18 +74,27 @@ export default function HeaderComponent() {
               <>
                 <h1>{user?.name}</h1>
                 <h2>{user?.email}</h2>
-                <a href="/logout">Logout</a>
+                <a href="#" onClick={handleLogout} >Logout</a>
               </>
             ) : (
-              <p>Faça <span><a href="/login">Login</a></span> ou <span><a href="/register">Registro</a></span></p>
+              <p>
+                Faça{" "}
+                <span>
+                  <a href="/login">Login</a>
+                </span>{" "}
+                ou{" "}
+                <span>
+                  <a href="/register">Registro</a>
+                </span>
+              </p>
             )}
-            
           </div>
           <hr />
-          {navLinks.map((link) =>(
-            <a href={link.href} key={link.href}>{link.name}</a>
+          {navLinks.map((link) => (
+            <a href={link.href} key={link.href}>
+              {link.name}
+            </a>
           ))}
-          
         </nav>
       </aside>
     </>

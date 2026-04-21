@@ -24,7 +24,7 @@ class SubjectRequest extends FormRequest
     {
         return [
             'title' => 'required|string|max:255',
-            'image' => 'required|mimes:jpeg,png,jpg,svg,jfif|max:2048'
+            'image' => 'mimes:jpeg,png,jpg,svg,jfif|max:2048'
         ];
     }
 }

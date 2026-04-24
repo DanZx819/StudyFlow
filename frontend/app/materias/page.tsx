@@ -260,12 +260,12 @@ export default function Linguagens() {
           subjects.map((s) => (
             <LangCardComponent
               key={s.id}
-              id={s.id} // 👈 Passa o ID
+              id={s.id}
               image={s.imageUrl}
               title={s.title}
-              onEdit={handleEdit} // 👈 Agora recebe o ID
-              onDelete={handleDelete} // 👈 Agora recebe o ID
-              onCreateRoutine={handleCreateRoutine} // 👈 Agora recebe o ID
+              onEdit={handleEdit} 
+              onDelete={handleDelete} 
+              onCreateRoutine={handleCreateRoutine} 
             />
           ))
         )}

@@ -54,7 +54,7 @@ class SubjectController extends Controller
 
         $subject->update($data);
         
-        //Gerar a URL da IMG novafsa
+        
         $subject->imageUrl = asset('storage/' . $subject->image);
 
         return response()->json($subject);

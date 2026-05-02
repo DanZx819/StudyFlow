@@ -1,74 +1,140 @@
+/* ── Page ───────────────────────────────────────────────────────────────────── */
 .container {
   min-height: 80vh;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 20px;
+  position: relative;
 }
 
-.form {
-  background-color: var(--color-card);
-  padding: 32px;
-  border-radius: 12px;
-  border: 1px solid var(--color-neutral);
+/* Decorative background orbs */
+.container::before {
+  content: '';
+  position: fixed;
+  top: -15%;
+  right: -12%;
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(circle, rgba(99,102,241,0.09) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
 
+.container::after {
+  content: '';
+  position: fixed;
+  bottom: -12%;
+  left: -10%;
+  width: 380px;
+  height: 380px;
+  background: radial-gradient(circle, rgba(16,185,129,0.07) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Form card ──────────────────────────────────────────────────────────────── */
+.form {
+  background: var(--color-card);
+  padding: 44px 40px;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-xl);
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 16px;
   width: 100%;
-  max-width: 400px;
+  max-width: 420px;
+  position: relative;
+  z-index: 1;
 }
 
-/* Título */
+
+/* ── Title ──────────────────────────────────────────────────────────────────── */
 .form h1 {
   text-align: center;
-  font-weight: bolder;
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: var(--color-text);
+  margin-bottom: -2px;
 }
 
 .form p {
   text-align: center;
   font-size: 14px;
-  opacity: 0.7;
+  color: var(--color-text-muted);
+  margin-bottom: 4px;
 }
 
-/* Inputs */
+/* ── Inputs ─────────────────────────────────────────────────────────────────── */
 .form input {
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid var(--color-neutral);
-  background-color: transparent;
+  padding: 13px 16px;
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--color-border);
+  background: var(--color-neutral);
   color: var(--color-text);
+  font-size: 15px;
+  font-family: inherit;
+  outline: none;
+  transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form input::placeholder {
+  color: var(--color-text-muted);
+}
+
+.form input:hover {
+  border-color: rgba(99,102,241,0.3);
 }
 
 .form input:focus {
-  outline: none;
+  background: var(--color-card);
   border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(99,102,241,0.12);
 }
 
-/* Botão */
+/* ── Submit button ──────────────────────────────────────────────────────────── */
 .form button {
-  margin-top: 10px;
-  padding: 10px;
-  border-radius: 8px;
+  margin-top: 4px;
+  padding: 13px;
+  border-radius: var(--radius-md);
   border: none;
-  background-color: var(--color-secondary);
-  color: white;
-  font-weight: bold;
+  background: linear-gradient(135deg, var(--color-secondary) 0%, #34D399 100%);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
   cursor: pointer;
-  transition: 0.2s;
+  box-shadow: var(--shadow-green);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .form button:hover {
-  background-color: var(--color-secondary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(16,185,129,0.38);
 }
 
-/* Link */
+.form button:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-green);
+}
+
+/* ── Footer text / link ─────────────────────────────────────────────────────── */
 .form span {
   text-align: center;
   font-size: 14px;
+  color: var(--color-text-muted);
 }
 
 .form a {
   color: var(--color-primary);
   text-decoration: none;
+  font-weight: 600;
+}
+
+.form a:hover {
+  text-decoration: underline;
 }

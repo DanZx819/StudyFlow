@@ -1,56 +1,68 @@
+/* ── Footer ─────────────────────────────────────────────────────────────────── */
 .footer {
   width: 100%;
-  margin-top: 40px;
-  background-color: var(--color-card);
-  border-top: 1px solid var(--color-neutral);
+  margin-top: 64px;
+  background: var(--color-card);
+  border-top: 1px solid var(--color-border);
+  box-shadow: 0 -1px 0 var(--color-border);
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 24px;
-
+  padding: 40px 24px 32px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 24px;
   align-items: center;
   text-align: center;
 }
 
-/* Logo / marca */
+/* ── Brand ──────────────────────────────────────────────────────────────────── */
 .brand h2 {
-  color: var(--color-primary);
   font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  background: linear-gradient(135deg, var(--color-primary) 0%, #A5B4FC 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 6px;
 }
 
 .brand p {
   font-size: 14px;
-  color: var(--color-text);
-  opacity: 0.8;
+  color: var(--color-text-muted);
 }
 
-/* Links */
+/* ── Links ──────────────────────────────────────────────────────────────────── */
 .links {
   display: flex;
-  gap: 20px;
+  gap: 6px;
   flex-wrap: wrap;
   justify-content: center;
 }
 
 .links a {
   text-decoration: none;
-  color: var(--color-text);
+  color: var(--color-text-muted);
+  font-size: 13px;
   font-weight: 500;
-  transition: 0.2s;
+  padding: 6px 14px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease;
 }
 
 .links a:hover {
   color: var(--color-primary);
+  background: var(--color-neutral);
+  border-color: var(--color-border);
 }
 
-/* Copyright */
+/* ── Copyright ──────────────────────────────────────────────────────────────── */
 .copy {
-  font-size: 13px;
-  color: var(--color-text);
-  opacity: 0.6;
+  font-size: 12px;
+  color: var(--color-text-muted);
+  opacity: 0.65;
 }

@@ -1,42 +1,45 @@
+/* ── Card container ─────────────────────────────────────────────────────────── */
 .container {
-  background-color: var(--color-card);
-  border-radius: 16px;
+  background: var(--color-card);
+  border-radius: var(--radius-lg);
   width: 220px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  border: 1px solid color-mix(in srgb, var(--color-primary) 20%, transparent);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-md);
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
   cursor: pointer;
 }
 
 .container:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 32px color-mix(in srgb, var(--color-primary) 15%, transparent);
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(99,102,241,0.22);
 }
 
-/* Imagem */
+/* ── Image wrapper ──────────────────────────────────────────────────────────── */
 .imgWrapper {
   width: 100%;
   aspect-ratio: 4 / 3;
-  background-color: var(--color-neutral);
+  background: var(--color-neutral);
   padding: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  position: relative; /* 👈 Para posicionar os botões */
+  position: relative;
 }
 
 .img {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  transition: transform 0.2s ease;
+  transition: transform 0.22s ease;
 }
 
 .container:hover .img {
-  transform: scale(1.04);
+  transform: scale(1.05);
 }
 
 .imgPlaceholder {
@@ -46,10 +49,10 @@
   align-items: center;
   justify-content: center;
   color: var(--color-primary);
-  opacity: 0.5;
+  opacity: 0.45;
 }
 
-/* Botões de Ação */
+/* ── Action buttons ─────────────────────────────────────────────────────────── */
 .actionButtons {
   position: absolute;
   top: 8px;
@@ -69,7 +72,7 @@
 .actionBtn {
   width: 32px;
   height: 32px;
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   border: none;
   display: flex;
   align-items: center;
@@ -77,82 +80,81 @@
   cursor: pointer;
   transition: all 0.15s ease;
   backdrop-filter: blur(8px);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
 }
 
 .actionBtn:active {
-  transform: scale(0.95);
+  transform: scale(0.94);
 }
 
-/* Botão Editar - Amarelo */
 .editBtn {
-  background-color: rgba(250, 204, 21, 0.95); /* Amarelo */
-  color: #78350f; /* Texto escuro para contraste */
+  background: rgba(250, 204, 21, 0.95);
+  color: #78350f;
 }
 
 .editBtn:hover {
-  background-color: rgba(234, 179, 8, 1);
-  box-shadow: 0 4px 12px rgba(250, 204, 21, 0.4);
+  background: rgba(234, 179, 8, 1);
+  box-shadow: 0 4px 14px rgba(250,204,21,0.42);
 }
 
-/* Botão Deletar - Vermelho */
 .deleteBtn {
-  background-color: rgba(239, 68, 68, 0.95); /* Vermelho */
-  color: #ffffff;
+  background: rgba(239, 68, 68, 0.95);
+  color: #fff;
 }
 
 .deleteBtn:hover {
-  background-color: rgba(220, 38, 38, 1);
-  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
+  background: rgba(220, 38, 38, 1);
+  box-shadow: 0 4px 14px rgba(239,68,68,0.42);
 }
 
-/* Conteúdo */
+/* ── Content ────────────────────────────────────────────────────────────────── */
 .content {
   padding: 16px;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 14px;
 }
 
 .title {
   font-size: 15px;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--color-text);
   margin: 0;
   line-height: 1.4;
   letter-spacing: -0.01em;
 }
 
-/* Botão Criar Rotina */
+/* ── CTA button ─────────────────────────────────────────────────────────────── */
 .btn {
   width: 100%;
   padding: 10px 0;
-  border-radius: 10px;
+  border-radius: var(--radius-md);
   border: none;
-  background-color: var(--color-secondary);
-  color: #ffffff;
+  background: linear-gradient(135deg, var(--color-secondary) 0%, #34D399 100%);
+  color: #fff;
   font-size: 14px;
   font-weight: 600;
   letter-spacing: 0.01em;
   cursor: pointer;
-  transition: background-color 0.15s ease, transform 0.1s ease;
+  box-shadow: var(--shadow-green);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .btn:hover {
-  background-color: var(--color-secondary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(16,185,129,0.38);
 }
 
 .btn:active {
   transform: scale(0.97);
 }
 
-/* Responsivo */
+/* ── Responsive ─────────────────────────────────────────────────────────────── */
 @media (max-width: 768px) {
   .container {
     width: 100%;
   }
 
-  /* No mobile, mostra os botões sempre */
   .actionButtons {
     opacity: 1;
     transform: translateY(0);

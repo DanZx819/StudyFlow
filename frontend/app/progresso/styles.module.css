@@ -1,0 +1,337 @@
+/* ── Page ───────────────────��───────────────────────────────────────────────── */
+.page {
+  min-height: 100vh;
+  padding: 2.5rem 2rem 4rem;
+  background-color: var(--color-bg);
+}
+
+/* ── Header ─────────���──────────────────────────��────────────────────────────── */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2.5rem;
+}
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.title {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--color-text);
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.subtitle {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  font-weight: 400;
+}
+
+/* ── Streak badge ─────────────────────────────────────���─────────────────────── */
+.streakBadge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, var(--color-secondary) 0%, #34D399 100%);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.95rem;
+  box-shadow: var(--shadow-green);
+}
+
+/* ── Seletor de dias do calendario ─────────────────────────────────────────── */
+.calendarOptions {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.calendarOptionBtn {
+  padding: 0.35rem 0.75rem;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-card);
+  color: var(--color-text-muted);
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.calendarOptionBtn:hover {
+  border-color: rgba(99, 102, 241, 0.3);
+}
+
+.calendarOptionActive {
+  border-color: var(--color-primary);
+  background: color-mix(in srgb, var(--color-primary) 10%, var(--color-card));
+  color: var(--color-primary);
+}
+
+/* ── Calendario semanal ───���──────────────────���──────────────────────────────── */
+.calendar {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 2.5rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+}
+
+.dayCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--color-border);
+  background-color: var(--color-card);
+  cursor: pointer;
+  min-width: 4.5rem;
+  transition: border-color 0.2s ease, background 0.2s ease, transform 0.15s ease;
+}
+
+.dayCard:hover {
+  border-color: rgba(99, 102, 241, 0.3);
+  transform: translateY(-2px);
+}
+
+.dayCardActive {
+  border-color: var(--color-primary);
+  background: color-mix(in srgb, var(--color-primary) 8%, var(--color-card));
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.12);
+}
+
+.dayCardToday {
+  border-color: var(--color-secondary);
+  background: color-mix(in srgb, var(--color-secondary) 8%, var(--color-card));
+}
+
+.dayCardActive.dayCardToday {
+  border-color: var(--color-secondary);
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.15);
+}
+
+.dayName {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.dayNumber {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--color-text);
+}
+
+.dayDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+}
+
+/* ── Secao de slots do dia ──────────────────────────────────────────────────── */
+.sectionTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 1rem;
+}
+
+.slotsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* ── Slot card ──────────────────��───────────────────────────────────────────── */
+.slotCard {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-card);
+  box-shadow: var(--shadow-sm);
+}
+
+.slotTime {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+  min-width: 4.5rem;
+}
+
+.slotTimeValue {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.slotTimeSeparator {
+  font-size: 0.7rem;
+  color: var(--color-text-muted);
+}
+
+.slotInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.slotSubjectRow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.slotSubject {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.slotSubjectImg {
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+}
+
+.slotStatus {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.slotStatusActive {
+  color: var(--color-secondary);
+}
+
+.slotStatusDone {
+  color: var(--color-secondary);
+}
+
+/* ── Timer display ────────────────��─────────────────────────────────────────── */
+.timer {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  font-variant-numeric: tabular-nums;
+  min-width: 5rem;
+  text-align: center;
+}
+
+/* ── Botao iniciar/completar ────────────────��───────────────────────────────── */
+.startBtn {
+  padding: 0.6rem 1.25rem;
+  border: none;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, var(--color-primary) 0%, #818CF8 100%);
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.3);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  white-space: nowrap;
+}
+
+.startBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(99, 102, 241, 0.4);
+}
+
+.startBtn:active {
+  transform: scale(0.97);
+}
+
+.startBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.completeBtn {
+  padding: 0.6rem 1.25rem;
+  border: none;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, var(--color-secondary) 0%, #34D399 100%);
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: var(--shadow-green);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  white-space: nowrap;
+}
+
+.completeBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(16, 185, 129, 0.4);
+}
+
+.doneTag {
+  padding: 0.4rem 0.9rem;
+  border-radius: var(--radius-sm);
+  background-color: color-mix(in srgb, var(--color-secondary) 12%, transparent);
+  color: var(--color-secondary);
+  font-size: 0.8rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* ── Empty ─────────��──────────────────────────���─────────────────────────────── */
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 4rem 1rem;
+  color: var(--color-text);
+  opacity: 0.4;
+  text-align: center;
+}
+
+.empty p {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* ─�� Responsivo ───────���──────────────────────────────────��──────────────────── */
+@media (max-width: 640px) {
+  .page {
+    padding: 1.5rem 1rem 3rem;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .slotCard {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .slotTime {
+    flex-direction: row;
+    gap: 0.5rem;
+  }
+}

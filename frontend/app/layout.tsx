@@ -1,9 +1,14 @@
 
 
-import { Inter } from "next/font/google";
+import { Inter, Nunito } from "next/font/google";
 const inter = Inter({
   subsets: ["latin"],
   weight: ["400", "500"],
+});
+const nunito = Nunito({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800", "900"],
+  variable: "--font-nunito",
 });
 import "@/app/globals.css";
 
@@ -21,7 +26,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR">
+    <html lang="pt-BR" className={nunito.variable}>
       <body>
         <div className={styles.page}>
           <HeaderComponent />

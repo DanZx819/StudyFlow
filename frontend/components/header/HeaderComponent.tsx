@@ -1,20 +1,18 @@
 "use client";
-import { Inter } from "next/font/google";
-const inter = Inter({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-});
 
 import { navLinks } from "./navigation";
 import { useEffect, useState } from "react";
 import styles from "./styles.module.css";
 
 import ButtonThemeToggle from "../theme/ButtonThemeToggle";
+import SparkLogo from "../brand/SparkLogo";
+import Wordmark from "../brand/Wordmark";
 import { Menu, X } from "lucide-react";
 import { User } from "@/types/User";
 import getUser from "@/services/userService";
 import { useRouter } from "next/navigation";
 import { logout } from "@/services/loginService";
+import Link from "next/link";
 
 export default function HeaderComponent() {
   const [user, setUser] = useState<User | null>(null);
@@ -41,10 +39,9 @@ export default function HeaderComponent() {
   }
 
   function handleOpen() {
-    setOpen((prev) => {
-      return prev === true ? false : true;
-    });
+    setOpen((prev) => !prev);
   }
+
   return (
     <>
       <header className={styles.container}>
@@ -53,9 +50,37 @@ export default function HeaderComponent() {
             <Menu />
           </button>
 
-          <h1 className={`${styles.logo} ${inter.className}`}>StudyFlow</h1>
+          <Link href="/" className={styles.logoWrap}>
+            <SparkLogo size={36} withSparks={false} id="header" />
+            <Wordmark size={22} />
+          </Link>
 
-          <ButtonThemeToggle />
+          {/* Nav desktop inline */}
+          <nav className={styles.desktopNav}>
+            {navLinks.map((link) => (
+              <Link href={link.href} key={link.href} className={styles.desktopLink}>
+                {link.name}
+              </Link>
+            ))}
+          </nav>
+
+          <div className={styles.headerActions}>
+            <ButtonThemeToggle />
+            {user ? (
+              <button className={styles.btnLogout} onClick={handleLogout}>
+                Sair
+              </button>
+            ) : (
+              <>
+                <Link href="/login" className={styles.btnEntrar}>
+                  Entrar
+                </Link>
+                <Link href="/register" className={styles.btnComecar}>
+                  Começar grátis
+                </Link>
+              </>
+            )}
+          </div>
         </div>
       </header>
 
@@ -74,7 +99,7 @@ export default function HeaderComponent() {
               <>
                 <h1>{user?.name}</h1>
                 <h2>{user?.email}</h2>
-                <a href="#" onClick={handleLogout} >Logout</a>
+                <a href="#" onClick={handleLogout}>Logout</a>
               </>
             ) : (
               <p>

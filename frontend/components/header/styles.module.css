@@ -3,7 +3,7 @@
   position: sticky;
   top: 0;
   z-index: 30;
-  background: rgba(238, 242, 255, 0.78);
+  background: rgba(250, 248, 242, 0.78);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--color-border);
@@ -11,7 +11,7 @@
 }
 
 :global(.dark) .container {
-  background: rgba(8, 13, 26, 0.82);
+  background: rgba(17, 12, 36, 0.82);
 }
 
 .row {
@@ -24,14 +24,110 @@
 }
 
 /* ── Logo ───────────────────────────────────────────────────────────────────── */
-.logo {
-  font-size: 22px;
+.logoWrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+/* ── Desktop nav ───────────────────────────────────────────────────────────── */
+.desktopNav {
+  display: none;
+  align-items: center;
+  gap: 6px;
+}
+
+.desktopLink {
+  padding: 8px 14px;
+  border-radius: var(--radius-md);
+  color: var(--color-text-muted);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.desktopLink:hover {
+  background: var(--color-neutral);
+  color: var(--color-primary);
+}
+
+/* ── Header actions (theme + auth buttons) ─────────────────────────────────── */
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btnEntrar {
+  display: none;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--color-text);
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: var(--radius-md);
+  transition: color 0.15s ease, background 0.15s ease;
+}
+
+.btnEntrar:hover {
+  color: var(--color-primary);
+  background: var(--color-neutral);
+}
+
+.btnComecar {
+  display: none;
+  padding: 10px 18px;
+  border-radius: 999px;
   font-weight: 800;
-  letter-spacing: -0.05em;
-  background: linear-gradient(135deg, var(--color-primary) 0%, #A5B4FC 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  font-size: 14px;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-hover));
+  color: #fff;
+  text-decoration: none;
+  box-shadow: 0 8px 18px -8px rgba(91, 64, 194, 0.55), inset 0 -2px 0 var(--color-primary-hover);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btnComecar:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px -8px rgba(91, 64, 194, 0.65), inset 0 -2px 0 var(--color-primary-hover);
+}
+
+.btnLogout {
+  display: none;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 14px;
+  color: #ef4444;
+  padding: 8px 14px;
+  border-radius: var(--radius-md);
+  transition: background 0.15s ease;
+}
+
+.btnLogout:hover {
+  background: #fee2e2;
+}
+
+@media (min-width: 769px) {
+  .desktopNav {
+    display: flex;
+  }
+  .btnEntrar,
+  .btnComecar,
+  .btnLogout {
+    display: inline-flex;
+  }
+  .menu {
+    display: none;
+  }
 }
 
 /* ── Menu button ────────────────────────────────────────────────────────────── */

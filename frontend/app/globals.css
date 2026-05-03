@@ -1,23 +1,28 @@
 @import "tailwindcss";
 
+/* ── Brand colors (Spark palette) ──────────────────────────────────────────── */
+/* Purple Deep: #3F2A8E · Purple: #5B40C2 · Blue: #5A86E0 · Coral: #F08C5C · Amber: #EFC069 · Cream: #FAF8F2 */
+
 /* ── Light Theme ────────────────────────────────────────────────────────────── */
 :root {
-  --color-bg: #EEF2FF;
+  --color-bg: #FAF8F2;
   --color-card: #FFFFFF;
-  --color-primary: #6366F1;
-  --color-primary-hover: #4F52D6;
-  --color-secondary: #10B981;
-  --color-secondary-hover: #059669;
-  --color-text: #1E293B;
-  --color-text-muted: #64748B;
-  --color-neutral: #F1F5F9;
-  --color-border: rgba(99, 102, 241, 0.14);
+  --color-primary: #5B40C2;
+  --color-primary-hover: #3F2A8E;
+  --color-secondary: #F08C5C;
+  --color-secondary-hover: #E07040;
+  --color-accent-blue: #5A86E0;
+  --color-accent-amber: #EFC069;
+  --color-text: #2A1F4E;
+  --color-text-muted: #6B5F8A;
+  --color-neutral: #F3F0E8;
+  --color-border: rgba(91, 64, 194, 0.12);
 
-  --shadow-sm:    0 1px 4px rgba(99,102,241,0.07);
-  --shadow-md:    0 4px 18px rgba(99,102,241,0.11), 0 1px 4px rgba(0,0,0,0.04);
-  --shadow-lg:    0 10px 36px rgba(99,102,241,0.15), 0 3px 10px rgba(0,0,0,0.06);
-  --shadow-xl:    0 24px 64px rgba(99,102,241,0.18), 0 8px 24px rgba(0,0,0,0.08);
-  --shadow-green: 0 4px 16px rgba(16,185,129,0.28);
+  --shadow-sm:    0 1px 4px rgba(91,64,194,0.07);
+  --shadow-md:    0 4px 18px rgba(91,64,194,0.11), 0 1px 4px rgba(0,0,0,0.04);
+  --shadow-lg:    0 10px 36px rgba(91,64,194,0.15), 0 3px 10px rgba(0,0,0,0.06);
+  --shadow-xl:    0 24px 64px rgba(91,64,194,0.18), 0 8px 24px rgba(0,0,0,0.08);
+  --shadow-green: 0 4px 16px rgba(240,140,92,0.30);
 
   --radius-sm: 8px;
   --radius-md: 12px;
@@ -27,22 +32,24 @@
 
 /* ── Dark Theme ─────────────────────────────────────────────────────────────── */
 .dark {
-  --color-bg: #080D1A;
-  --color-card: #0F172A;
-  --color-primary: #818CF8;
-  --color-primary-hover: #6366F1;
-  --color-secondary: #34D399;
-  --color-secondary-hover: #10B981;
-  --color-text: #F1F5F9;
-  --color-text-muted: #94A3B8;
-  --color-neutral: #1E293B;
-  --color-border: rgba(129, 140, 248, 0.14);
+  --color-bg: #110C24;
+  --color-card: #1A1438;
+  --color-primary: #8B7AE8;
+  --color-primary-hover: #5B40C2;
+  --color-secondary: #F5A87A;
+  --color-secondary-hover: #F08C5C;
+  --color-accent-blue: #7BA3F0;
+  --color-accent-amber: #F5D48A;
+  --color-text: #F3F0E8;
+  --color-text-muted: #9B8FBB;
+  --color-neutral: #241E40;
+  --color-border: rgba(139, 122, 232, 0.14);
 
-  --shadow-sm:    0 1px 4px rgba(0,0,0,0.35);
-  --shadow-md:    0 4px 18px rgba(0,0,0,0.38), 0 1px 4px rgba(0,0,0,0.25);
-  --shadow-lg:    0 10px 36px rgba(0,0,0,0.44), 0 3px 10px rgba(0,0,0,0.3);
-  --shadow-xl:    0 24px 64px rgba(0,0,0,0.55), 0 8px 24px rgba(0,0,0,0.35);
-  --shadow-green: 0 4px 16px rgba(52,211,153,0.22);
+  --shadow-sm:    0 1px 4px rgba(0,0,0,0.40);
+  --shadow-md:    0 4px 18px rgba(0,0,0,0.42), 0 1px 4px rgba(0,0,0,0.28);
+  --shadow-lg:    0 10px 36px rgba(0,0,0,0.48), 0 3px 10px rgba(0,0,0,0.32);
+  --shadow-xl:    0 24px 64px rgba(0,0,0,0.58), 0 8px 24px rgba(0,0,0,0.38);
+  --shadow-green: 0 4px 16px rgba(240,140,92,0.22);
 }
 
 /* ── Base ───────────────────────────────────────────────────────────────────── */
@@ -52,6 +59,42 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   transition: background-color 0.35s ease, color 0.35s ease;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Fundo decorativo com orbs de cor */
+body::before,
+body::after {
+  content: '';
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: -1;
+  filter: blur(80px);
+  opacity: 0.35;
+  transition: opacity 0.35s ease;
+}
+
+body::before {
+  width: 500px;
+  height: 500px;
+  top: -120px;
+  right: -100px;
+  background: radial-gradient(circle, rgba(91,64,194,0.30), rgba(90,134,224,0.15), transparent 70%);
+}
+
+body::after {
+  width: 450px;
+  height: 450px;
+  bottom: -80px;
+  left: -80px;
+  background: radial-gradient(circle, rgba(240,140,92,0.25), rgba(239,192,105,0.12), transparent 70%);
+}
+
+.dark body::before,
+.dark body::after {
+  opacity: 0.2;
 }
 
 *, *::before, *::after {

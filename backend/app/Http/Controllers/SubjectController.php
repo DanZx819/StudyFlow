@@ -33,7 +33,7 @@ class SubjectController extends Controller
 
     }
 
-    public function update(SubjectRequest $request, $id){
+    public function update(SubjectRequest $request, int $id){
     
         $subject = Subject::findOrFail($id);
 

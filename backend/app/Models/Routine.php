@@ -5,26 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Subject extends Model
+class Routine extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id', 'title', 'image'];
-
-    protected $appends = ['imageUrl'];
+    protected $fillable = ['user_id', 'day_of_week', 'name'];
 
     public function user()
     {
         return $this->belongsTo(User::class);
     }
 
-    public function routineSlots()
+    public function slots()
     {
         return $this->hasMany(RoutineSlot::class);
     }
-
-    public function getImageUrlAttribute()
-{
-    return asset('storage/' . $this->image);
-}
 }

@@ -2,13 +2,13 @@
 .container {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 48px 24px 64px;
+  padding: 2.5rem 1.5rem 4rem;
 }
 
 /* ── Hero ───────────────────────────────────────────────────────────────────── */
 .hero {
-  margin-bottom: 52px;
-  padding: 48px 44px;
+  margin-bottom: 2.5rem;
+  padding: 2.5rem 2.75rem;
   background: var(--color-card);
   border-radius: var(--radius-xl);
   border: 1px solid var(--color-border);
@@ -17,7 +17,6 @@
   overflow: hidden;
 }
 
-/* Decorative orbs */
 .hero::before {
   content: '';
   position: absolute;
@@ -42,94 +41,236 @@
   pointer-events: none;
 }
 
-.hero h1 {
-  font-size: 36px;
+.heroContent {
+  position: relative;
+  z-index: 1;
+}
+
+.greeting {
+  font-size: 2rem;
   font-weight: 800;
   color: var(--color-text);
   letter-spacing: -0.04em;
   line-height: 1.1;
-  position: relative;
-  z-index: 1;
 }
 
-.hero h2 {
-  font-size: 22px;
-  font-weight: 700;
-  color: var(--color-primary);
-  margin-top: 6px;
-  position: relative;
-  z-index: 1;
-}
-
-.hero p {
-  margin-top: 12px;
+.heroSubtitle {
+  margin-top: 0.5rem;
   color: var(--color-text-muted);
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 1.5;
-  position: relative;
-  z-index: 1;
 }
 
-/* ── Cards grid ─────────────────────────────────────────────────────────────── */
-.cards {
+.heroDate {
+  margin-top: 0.25rem;
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+/* ── Stats grid ────────────────────────────────────────────────────────────── */
+.statsGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
 }
 
-/* ── Card ───────────────────────────────────────────────────────────────────── */
-.card {
+.statCard {
   background: var(--color-card);
-  padding: 28px 24px 24px;
+  padding: 1.25rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.statIcon {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.statIconPrimary {
+  background: color-mix(in srgb, var(--color-primary) 12%, transparent);
+  color: var(--color-primary);
+}
+
+.statIconSecondary {
+  background: color-mix(in srgb, var(--color-secondary) 12%, transparent);
+  color: var(--color-secondary);
+}
+
+.statIconWarm {
+  background: color-mix(in srgb, #f59e0b 12%, transparent);
+  color: #f59e0b;
+}
+
+.statInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.statValue {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--color-text);
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.statLabel {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 0.2rem;
+}
+
+/* ── Charts grid ───────────────────────────────────────────────────────────── */
+.chartsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.chartCard {
+  background: var(--color-card);
+  padding: 1.5rem;
   border-radius: var(--radius-xl);
   border: 1px solid var(--color-border);
-  box-shadow: var(--shadow-md);
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-  position: relative;
-  overflow: hidden;
+  box-shadow: var(--shadow-sm);
 }
 
-.card:hover {
-  transform: translateY(-7px);
+.chartTitle {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.chartWrap {
+  width: 100%;
+  height: 220px;
+}
+
+/* ── Quick links ───────────────────────────────────────────────────────────── */
+.quickLinks {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.quickCard {
+  background: var(--color-card);
+  padding: 1.5rem;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.quickCard:hover {
+  transform: translateY(-5px);
   box-shadow: var(--shadow-lg);
   border-color: rgba(99,102,241,0.22);
 }
 
-.card h2 {
-  font-size: 20px;
+.quickCardIcon {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--color-primary) 10%, transparent);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quickCardTitle {
+  font-size: 1rem;
   font-weight: 700;
-  letter-spacing: -0.02em;
   color: var(--color-text);
-  margin-bottom: 10px;
 }
 
-.card p {
-  font-size: 14px;
+.quickCardDesc {
+  font-size: 0.82rem;
   color: var(--color-text-muted);
-  margin-bottom: 22px;
-  line-height: 1.55;
+  line-height: 1.45;
 }
 
-/* ── Card link button ───────────────────────────────────────────────────────── */
-.card a {
+.quickCardLink {
   text-decoration: none;
   display: inline-block;
   background: linear-gradient(135deg, var(--color-secondary) 0%, #34D399 100%);
   color: #fff;
-  padding: 9px 18px;
-  border-radius: 10px;
-  font-size: 13px;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
   font-weight: 600;
-  letter-spacing: 0.01em;
   box-shadow: var(--shadow-green);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  align-self: flex-start;
+  margin-top: auto;
 }
 
-.card a:hover {
+.quickCardLink:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(16,185,129,0.38);
 }
 
-.card a:active {
-  transform: translateY(0);
+/* ── Loading ───────────────────────────────────────────────────────────────── */
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+/* ── Responsivo ────────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .container {
+    padding: 1.5rem 1rem 3rem;
+  }
+
+  .hero {
+    padding: 2rem 1.5rem;
+  }
+
+  .greeting {
+    font-size: 1.5rem;
+  }
+
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .chartsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .quickLinks {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .statsGrid {
+    grid-template-columns: 1fr;
+  }
 }
